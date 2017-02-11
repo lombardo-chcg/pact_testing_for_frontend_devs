@@ -29,7 +29,8 @@
     "sass-loader": "^4.1.1",
     "strip-loader": "^0.1.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "axios": "^0.15.3"
