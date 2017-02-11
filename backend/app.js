@@ -1,20 +1,27 @@
 var bodyParser = require('body-parser')
 var express = require('express');
-var responseData = require('./responseData');
+var fakerFactory = require('./fakerFactory');
 
 var app = express();
 var jsonParser = bodyParser.json();
 
-app.get('/trivia', function(req, res) {
-  res.json(responseData.numberTrivia);
+app.get('/users', function(req, res) {
+  res.json({
+    users: [
+      fakerFactory.getFakeUser(),
+      fakerFactory.getFakeUser(),
+      fakerFactory.getFakeUser(),
+      fakerFactory.getFakeUser(),
+      fakerFactory.getFakeUser(),
+      fakerFactory.getFakeUser()
+    ]
+  });
 });
 
-app.post('/trivia', jsonParser, function(req, res) {
-  var randomNum = Math.floor((Math.random()) * 1000);
-
+app.post('/users', jsonParser, function(req, res) {
   console.log(req.body);
 
-  res.json({ id: randomNum });
+  res.json({ id: fakerFactory.getRandomNum() });
 })
 
 app.listen(3000, function () {
