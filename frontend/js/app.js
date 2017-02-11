@@ -18,6 +18,7 @@
   }
 
   function appendUserData(serverResponse) {
+    console.log(serverResponse.data)
     serverResponse
       .data
       .users
