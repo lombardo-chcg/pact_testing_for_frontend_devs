@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve("js"),
-  entry: ["./app", "./utils"],
+  entry: ["./app"],
   output: {
     path: path.resolve("build/"),
     publicPath: "/public/assets/",
@@ -25,7 +25,7 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.es6$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
