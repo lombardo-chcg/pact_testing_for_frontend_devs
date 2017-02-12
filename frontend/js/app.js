@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 (function () {
   'use strict';
 
@@ -18,7 +20,6 @@
   }
 
   function appendUserData(serverResponse) {
-    console.log(serverResponse.data)
     serverResponse
       .data
       .users
@@ -41,7 +42,7 @@
 
   function createUserNode(user) {
     function genColorStyle(index) {
-      return `style="background-color:${user.favorite_colors[index]};"`
+      return `style="background-color:${user.favorite_colors[index]};"`;
     }
 
     return (
