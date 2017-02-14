@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 (function () {
   'use strict';
 
@@ -40,7 +42,7 @@
 
   function createUserNode(user) {
     function genColorStyle(index) {
-      return `style="background-color:${user.favorite_colors[index]};"`
+      return `style="background-color:${user.favorite_colors[index]};"`;
     }
 
     return (

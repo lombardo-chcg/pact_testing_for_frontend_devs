@@ -1,0 +1,23 @@
+version: '2.0'
+services:
+    postgres:
+      image: postgres
+      container_name: postgres
+      ports:
+        - "5432:5432"
+      environment:
+        - POSTGRES_USER=pactLover
+        - POSTGRES_PASSWORD=iLovePact
+        - POSTGRES_DB=pacts
+    pact-broker:
+      image: dius/pact_broker
+      container_name: pact-broker
+      ports:
+        - "80:80"
+      depends_on:
+        - postgres
+      environment:
+        - PACT_BROKER_DATABASE_HOST=postgres
+        - PACT_BROKER_DATABASE_NAME=pacts
+        - PACT_BROKER_DATABASE_USERNAME=pactLover
+        - PACT_BROKER_DATABASE_PASSWORD=iLovePact
