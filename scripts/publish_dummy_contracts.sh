@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source scripts/helpers.sh
+
 dockerHost=$(docker-machine ip dev)
 
 for contract in frontend/dummy_data/*; do
@@ -14,7 +16,7 @@ for contract in frontend/dummy_data/*; do
     http://$dockerHost:80/pacts/provider/$provider/consumer/$consumer/version/1 \
     1>/dev/null
 
-  [[ $? -gt 0 ]] && { echo "error while publishing $consumer $provider contract"; exit 1; }
+  [[ $? -gt 0 ]] && { printRed "error while publishing $consumer $provider contract"; exit 1; }
 
-  echo -e "\nSuccessfully published contract between $consumer and $provider"
+  echo -e "\nSuccessfully published contract between $(printGreen $consumer) and $(printBlue $provider)"
 done
